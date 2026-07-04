@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="auto">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="robots" content="noindex" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%A2%3C/text%3E%3C/svg%3E"
+    />
+    <title>Buat QR Code Menu — Nama Usaha Anda</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="qr.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <div class="site-header__text">
+          <h1 class="site-header__title">Buat QR Code Menu</h1>
+          <p class="site-header__tagline">
+            Tempel link menu, cetak, lalu pasang di meja/gerobak.
+          </p>
+        </div>
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Ganti mode terang/gelap"
+          title="Ganti mode terang/gelap"
+        >
+          <span class="theme-toggle__icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="qr">
+      <section class="qr-panel">
+        <label class="qr-field">
+          <span class="qr-field__label">Link menu (URL)</span>
+          <input
+            id="qr-url"
+            class="qr-field__input"
+            type="url"
+            inputmode="url"
+            autocomplete="url"
+            placeholder="https://nama-usaha-anda.netlify.app"
+            value="https://nama-usaha-anda.netlify.app"
+          />
+        </label>
+
+        <div class="qr-options">
+          <label class="qr-option">
+            <span class="qr-option__label">Warna QR</span>
+            <input id="qr-color" class="qr-option__color" type="color" value="#000000" />
+          </label>
+          <label class="qr-option">
+            <span class="qr-option__label">Latar</span>
+            <input id="qr-bg" class="qr-option__color" type="color" value="#ffffff" />
+          </label>
+          <label class="qr-option qr-option--wide">
+            <span class="qr-option__label">Koreksi error</span>
+            <select id="qr-ecc" class="qr-option__select">
+              <option value="L">L — Rendah</option>
+              <option value="M" selected>M — Sedang</option>
+              <option value="Q">Q — Tinggi</option>
+              <option value="H">H — Maks (buat logo)</option>
+            </select>
+          </label>
+        </div>
+
+        <p id="qr-error" class="qr-error" role="alert" hidden></p>
+
+        <div class="qr-preview">
+          <div id="qr-canvas-wrap" class="qr-canvas-wrap">
+            <canvas id="qr-canvas" width="320" height="320" aria-label="Pratinjau QR code"></canvas>
+          </div>
+          <p id="qr-caption" class="qr-caption"></p>
+        </div>
+
+        <div class="qr-actions">
+          <button id="qr-download-png" class="qr-btn qr-btn--primary" type="button">
+            ⬇︎ Unduh PNG
+          </button>
+          <button id="qr-download-svg" class="qr-btn" type="button">
+            ⬇︎ Unduh SVG
+          </button>
+          <button id="qr-print" class="qr-btn" type="button">🖨 Cetak</button>
+        </div>
+
+        <details class="qr-help">
+          <summary>Cara pakai</summary>
+          <ol>
+            <li>Deploy folder menu ke Netlify, salin URL-nya.</li>
+            <li>Tempel URL di kolom atas — QR langsung diperbarui.</li>
+            <li>Unduh <strong>PNG</strong> (untuk stiker/foto) atau <strong>SVG</strong> (untuk cetak besar tanpa pecah).</li>
+            <li>Tes scan dulu pakai HP sebelum dicetak banyak.</li>
+          </ol>
+          <p class="qr-note">
+            Halaman ini hanya alat bantu untukmu — tidak perlu ikut di-deploy,
+            dan sudah di-set <code>noindex</code>.
+          </p>
+        </details>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>QR digenerate lokal di perangkatmu (offline) — tanpa server/library online.</p>
+    </footer>
+
+    <!-- Library QR (MIT, Kazuhiko Arase) — vendored, jalan offline -->
+    <script src="qrcode.js"></script>
+    <script src="qr.js"></script>
+  </body>
+</html>

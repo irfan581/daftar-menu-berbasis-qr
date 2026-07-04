@@ -1,0 +1,225 @@
+/* =====================================================================
+   QR GENERATOR — qr.css
+   Menumpang design token dari style.css (palet, dark mode, dsb).
+   ===================================================================== */
+
+.qr {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 16px calc(16px + env(safe-area-inset-right))
+    calc(16px + env(safe-area-inset-bottom))
+    calc(16px + env(safe-area-inset-left));
+}
+
+.qr-panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 18px 16px;
+}
+
+/* ---------- Field URL ---------- */
+.qr-field {
+  display: block;
+}
+
+.qr-field__label,
+.qr-option__label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.qr-field__input {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 16px; /* 16px = cegah auto-zoom iOS saat fokus */
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.qr-field__input:focus,
+.qr-option__select:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+/* ---------- Baris opsi ---------- */
+.qr-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.qr-option {
+  display: block;
+}
+
+/* Dropdown koreksi error mengisi sisa lebar; turun jadi 1 baris penuh di HP */
+.qr-option--wide {
+  flex: 1 1 180px;
+}
+
+.qr-option__color {
+  display: block;
+  width: 64px;
+  height: 44px; /* target sentuh nyaman */
+  padding: 2px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background-color: var(--color-bg);
+  cursor: pointer;
+}
+
+.qr-option__select {
+  width: 100%;
+  min-height: 44px;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 9px 10px;
+}
+
+/* ---------- Pesan error ---------- */
+.qr-error {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background-color: rgba(194, 90, 8, 0.12);
+  color: var(--color-accent-strong);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ---------- Pratinjau ---------- */
+.qr-preview {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.qr-canvas-wrap {
+  display: inline-block;
+  max-width: 100%; /* jangan pernah lebih lebar dari layar */
+  padding: 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background-color: #ffffff; /* frame putih, apa pun temanya, agar kontras QR terjaga */
+}
+
+#qr-canvas {
+  display: block;
+  /* mengecil otomatis di HP mungil, tetap tajam & persegi */
+  width: min(260px, 68vw);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  image-rendering: pixelated; /* pinggiran tajam */
+}
+
+.qr-caption {
+  margin: 10px 0 0;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  word-break: break-all;
+}
+
+/* ---------- Tombol aksi ---------- */
+.qr-actions {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.qr-btn {
+  flex: 1 1 130px;
+  min-height: 46px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 11px 14px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.15s ease;
+}
+
+/* Tombol utama tampil penuh selebar layar di HP */
+.qr-btn--primary {
+  flex-basis: 100%;
+}
+
+.qr-btn:hover {
+  border-color: var(--color-accent);
+}
+.qr-btn:active {
+  transform: scale(0.97);
+}
+
+.qr-btn--primary {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
+}
+
+/* ---------- Bantuan ---------- */
+.qr-help {
+  margin-top: 18px;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+.qr-help summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.qr-help ol {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.qr-help li {
+  margin-bottom: 4px;
+}
+.qr-note code {
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+  background-color: var(--color-bg);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+/* ---------- Cetak ---------- */
+@media print {
+  .site-header,
+  .site-footer,
+  .qr-field,
+  .qr-options,
+  .qr-actions,
+  .qr-help,
+  .qr-error {
+    display: none !important;
+  }
+  .qr-panel {
+    border: none;
+    box-shadow: none;
+  }
+  .qr-canvas-wrap {
+    border: none;
+  }
+  #qr-canvas {
+    width: 60mm;
+    height: 60mm;
+  }
+}

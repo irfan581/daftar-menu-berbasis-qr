@@ -1,0 +1,402 @@
+/* =====================================================================
+   MENU DIGITAL PENTOL — style.css
+   Mobile-first, tanpa library. Dark mode otomatis + toggle manual.
+   ===================================================================== */
+
+/* ---------- Design tokens (mode terang / default) ---------- */
+:root {
+  --color-bg: #f8f3e9; /* krem / putih tulang */
+  --color-surface: #ffffff; /* permukaan card */
+  --color-surface-alt: #fffdf8; /* header/bar */
+  --color-text: #2b2620; /* teks utama */
+  --color-text-muted: #7a7264; /* deskripsi/footer */
+  --color-accent: #e8720c; /* oranye aksen (aktif/tombol) */
+  --color-accent-strong: #c25a08; /* oranye gelap (harga) */
+  --color-border: #ece3d2;
+  --shadow-card: 0 2px 8px rgba(60, 45, 20, 0.08);
+  --shadow-bar: 0 4px 14px rgba(60, 45, 20, 0.12);
+
+  --font-heading: "Oswald", "Arial Narrow", "Roboto Condensed",
+    system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SFMono-Regular", ui-monospace, "Roboto Mono", Consolas,
+    "Liberation Mono", monospace;
+
+  --radius: 14px;
+  --maxw: 640px;
+}
+
+/* ---------- Dark mode otomatis (mengikuti sistem) ---------- */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] {
+    --color-bg: #1c1a16;
+    --color-surface: #262320;
+    --color-surface-alt: #201d19;
+    --color-text: #f3ece0;
+    --color-text-muted: #a89f8f;
+    --color-accent: #ff8a2b;
+    --color-accent-strong: #ffb066;
+    --color-border: #38332c;
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.45);
+    --shadow-bar: 0 4px 14px rgba(0, 0, 0, 0.55);
+  }
+}
+
+/* ---------- Dark mode manual (via toggle: data-theme="dark") ---------- */
+:root[data-theme="dark"] {
+  --color-bg: #1c1a16;
+  --color-surface: #262320;
+  --color-surface-alt: #201d19;
+  --color-text: #f3ece0;
+  --color-text-muted: #a89f8f;
+  --color-accent: #ff8a2b;
+  --color-accent-strong: #ffb066;
+  --color-border: #38332c;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.45);
+  --shadow-bar: 0 4px 14px rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- Reset ringan ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* offset agar judul section tidak tertutup bar sticky saat di-scroll */
+  scroll-padding-top: 72px;
+  /* cegah teks membesar sendiri saat HP diputar ke landscape */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  /* Cegah scroll horizontal TANPA menjadikan body scroll-container
+     sendiri (yang bikin position:sticky & scroll vertikal jadi
+     "melompat"). overflow-x:clip tidak memaksa overflow-y jadi auto,
+     jadi sticky tetap normal. Fallback ke hidden utk browser lama. */
+  overflow-x: hidden;
+  overflow-x: clip;
+  /* hilangkan kotak highlight biru saat elemen di-tap di HP */
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Semua tombol/kontrol minimal 44px (rekomendasi target sentuh) & tanpa zoom iOS */
+button,
+input,
+select {
+  font-size: 16px; /* <16px memicu auto-zoom di iOS Safari saat fokus */
+}
+
+/* =====================================================================
+   HEADER
+   ===================================================================== */
+.site-header {
+  background-color: var(--color-surface-alt);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  /* padding kiri/kanan menghormati "poni"/lekukan layar (safe-area) */
+  padding: 20px calc(16px + env(safe-area-inset-right)) 22px
+    calc(16px + env(safe-area-inset-left));
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.site-header__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 6vw, 2.1rem);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: var(--color-text);
+}
+
+.site-header__tagline {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+/* Tombol toggle tema */
+.theme-toggle {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-surface);
+}
+
+.theme-toggle:active {
+  transform: scale(0.94);
+}
+
+.theme-toggle__icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+/* ikon di-set lewat ::before agar ganti sesuai tema */
+.theme-toggle__icon::before {
+  content: "🌙";
+}
+:root[data-theme="dark"] .theme-toggle__icon::before {
+  content: "☀️";
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] .theme-toggle__icon::before {
+    content: "☀️";
+  }
+}
+
+/* =====================================================================
+   BAR KATEGORI (STICKY)
+   ===================================================================== */
+.category-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: var(--color-surface-alt);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-bar); /* efek "melayang" */
+}
+
+.category-bar__list {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 10px calc(12px + env(safe-area-inset-right)) 10px
+    calc(12px + env(safe-area-inset-left));
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain; /* geser kategori tak menyeret seluruh halaman */
+  scrollbar-width: none; /* Firefox */
+}
+.category-bar__list::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.category-bar__btn {
+  flex-shrink: 0;
+  min-height: 40px; /* nyaman ditekan jari */
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.category-bar__btn:hover {
+  border-color: var(--color-accent);
+}
+
+/* Kategori aktif (di-set oleh script.js sesuai posisi scroll) */
+.category-bar__btn.is-active {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
+}
+
+/* =====================================================================
+   MENU (SECTION + CARD)
+   ===================================================================== */
+.menu {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 8px calc(16px + env(safe-area-inset-right)) 32px
+    calc(16px + env(safe-area-inset-left));
+}
+
+.menu-section {
+  padding-top: 20px;
+}
+
+.menu-section__title {
+  margin: 8px 0 14px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.menu-section__title::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background-color: var(--color-border);
+  border-radius: 2px;
+}
+
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+/* ---------- Card item ---------- */
+.card {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: var(--shadow-card); /* efek timbul halus */
+}
+
+.card__media {
+  flex-shrink: 0;
+  width: 84px;
+  height: 84px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Placeholder saat foto belum ada / gagal dimuat */
+.card__placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 1.9rem;
+  background: linear-gradient(
+    135deg,
+    rgba(232, 114, 12, 0.14),
+    rgba(232, 114, 12, 0.04)
+  );
+  color: var(--color-accent);
+}
+
+.card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.card__name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.card__desc {
+  margin: 3px 0 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.card__price {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-accent-strong);
+}
+
+/* =====================================================================
+   FOOTER
+   ===================================================================== */
+.site-footer {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  /* tambah jarak bawah utk home-indicator iPhone (safe-area) */
+  padding: 20px 16px calc(40px + env(safe-area-inset-bottom));
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+/* =====================================================================
+   Aksesibilitas: hormati preferensi reduce-motion
+   ===================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+  }
+}
+
+/* Layar agak lebar: card sedikit lebih lega */
+@media (min-width: 480px) {
+  .card__media {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+/* HP mungil (≤360px, mis. iPhone SE): rapatkan sedikit agar tidak sesak */
+@media (max-width: 360px) {
+  .site-header__inner {
+    padding-top: 16px;
+    padding-bottom: 18px;
+  }
+  .card {
+    gap: 11px;
+    padding: 10px;
+  }
+  .card__media {
+    width: 72px;
+    height: 72px;
+  }
+  .card__name {
+    font-size: 0.95rem;
+  }
+  .card__desc {
+    font-size: 0.82rem;
+  }
+}

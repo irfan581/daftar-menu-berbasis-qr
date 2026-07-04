@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="auto">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Menu digital penjual pentol — lihat pilihan pentol dan tambahannya."
+    />
+    <meta name="theme-color" content="#E8720C" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%A2%3C/text%3E%3C/svg%3E"
+    />
+    <title>Menu Digital — Nama Usaha Anda</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-header">
+      <div class="site-header__inner">
+        <div class="site-header__text">
+          <h1 class="site-header__title">Nama Usaha Anda</h1>
+          <p class="site-header__tagline">Pentol enak, harga bersahabat 🍢</p>
+        </div>
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Ganti mode terang/gelap"
+          title="Ganti mode terang/gelap"
+        >
+          <span class="theme-toggle__icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ================= BAR KATEGORI (STICKY) ================= -->
+    <nav id="category-bar" class="category-bar" aria-label="Kategori menu">
+      <ul id="category-list" class="category-bar__list">
+        <!-- Tombol kategori di-generate oleh script.js -->
+      </ul>
+    </nav>
+
+    <!-- ===================== KONTEN MENU ===================== -->
+    <main id="menu-root" class="menu">
+      <!-- Section & card menu di-generate oleh script.js -->
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+      <p>
+        Menu &amp; harga di atas masih contoh — tampilan final akan
+        menyesuaikan data asli usaha.
+      </p>
+    </footer>
+
+    <!-- Data menu dimuat lebih dulu, lalu script utama -->
+    <script src="menu-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
