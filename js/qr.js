@@ -146,30 +146,6 @@
   }
 
   // ---------------------------------------------------------------
-  // Toggle dark mode (samakan perilaku dgn halaman menu)
-  function initThemeToggle() {
-    var root = document.documentElement;
-    var toggle = document.getElementById("theme-toggle");
-    if (!toggle) return;
-
-    var saved = localStorage.getItem("pentol-theme");
-    if (saved === "light" || saved === "dark") {
-      root.setAttribute("data-theme", saved);
-    }
-    toggle.addEventListener("click", function () {
-      var cur = root.getAttribute("data-theme");
-      if (cur !== "light" && cur !== "dark") {
-        cur = window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-      }
-      var next = cur === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      localStorage.setItem("pentol-theme", next);
-    });
-  }
-
-  // ---------------------------------------------------------------
   function init() {
     if (typeof window.qrcode !== "function") {
       showError("Library QR gagal dimuat. Pastikan file qrcode.js ada di folder yang sama.");
@@ -187,7 +163,6 @@
       window.print();
     });
 
-    initThemeToggle();
     render();
   }
 

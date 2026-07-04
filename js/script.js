@@ -2,7 +2,6 @@
    MENU DIGITAL PENTOL — script.js
    - Render menu dari data (menu-data.js)
    - Bar kategori sticky + highlight otomatis sesuai posisi scroll
-   - Toggle dark mode manual (data-theme di <html>)
    Tanpa library eksternal.
    ===================================================================== */
 
@@ -186,35 +185,6 @@
   }
 
   // ---------------------------------------------------------------
-  // Toggle dark mode manual
-  // ---------------------------------------------------------------
-
-  function initThemeToggle() {
-    const root = document.documentElement;
-    const toggle = document.getElementById("theme-toggle");
-    if (!toggle) return;
-
-    // Ambil preferensi tersimpan (kalau ada)
-    const saved = localStorage.getItem("pentol-theme"); // "light" | "dark" | null
-    if (saved === "light" || saved === "dark") {
-      root.setAttribute("data-theme", saved);
-    }
-
-    toggle.addEventListener("click", function () {
-      // Tentukan tema yang sedang tampil (perhitungkan mode "auto")
-      let current = root.getAttribute("data-theme");
-      if (current !== "light" && current !== "dark") {
-        current = window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-      }
-      const next = current === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      localStorage.setItem("pentol-theme", next);
-    });
-  }
-
-  // ---------------------------------------------------------------
   // Init
   // ---------------------------------------------------------------
 
@@ -226,7 +196,6 @@
     buildCategoryBar();
     buildMenu();
     observeSections();
-    initThemeToggle();
   }
 
   if (document.readyState === "loading") {

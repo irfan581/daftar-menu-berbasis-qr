@@ -1,18 +1,18 @@
 /* =====================================================================
    MENU DIGITAL PENTOL — style.css
-   Mobile-first, tanpa library. Dark mode otomatis + toggle manual.
+   Mobile-first, tanpa library. Satu tema (terang), sesuai warna banner.
    ===================================================================== */
 
-/* ---------- Design tokens (mode terang / default) ---------- */
+/* ---------- Design tokens ---------- */
 :root {
-  --color-bg: #f8f3e9; /* krem / putih tulang */
+  --color-bg: #f9c928; /* kuning banner gerobak */
   --color-surface: #ffffff; /* permukaan card */
-  --color-surface-alt: #fffdf8; /* header/bar */
+  --color-surface-alt: #ffde59; /* header/bar - kuning lebih terang */
   --color-text: #2b2620; /* teks utama */
-  --color-text-muted: #7a7264; /* deskripsi/footer */
+  --color-text-muted: #6b5a1e; /* deskripsi/footer */
   --color-accent: #e8720c; /* oranye aksen (aktif/tombol) */
   --color-accent-strong: #c25a08; /* oranye gelap (harga) */
-  --color-border: #ece3d2;
+  --color-border: #e0b400;
   --shadow-card: 0 2px 8px rgba(60, 45, 20, 0.08);
   --shadow-bar: 0 4px 14px rgba(60, 45, 20, 0.12);
 
@@ -24,36 +24,6 @@
 
   --radius: 14px;
   --maxw: 640px;
-}
-
-/* ---------- Dark mode otomatis (mengikuti sistem) ---------- */
-@media (prefers-color-scheme: dark) {
-  :root[data-theme="auto"] {
-    --color-bg: #1c1a16;
-    --color-surface: #262320;
-    --color-surface-alt: #201d19;
-    --color-text: #f3ece0;
-    --color-text-muted: #a89f8f;
-    --color-accent: #ff8a2b;
-    --color-accent-strong: #ffb066;
-    --color-border: #38332c;
-    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.45);
-    --shadow-bar: 0 4px 14px rgba(0, 0, 0, 0.55);
-  }
-}
-
-/* ---------- Dark mode manual (via toggle: data-theme="dark") ---------- */
-:root[data-theme="dark"] {
-  --color-bg: #1c1a16;
-  --color-surface: #262320;
-  --color-surface-alt: #201d19;
-  --color-text: #f3ece0;
-  --color-text-muted: #a89f8f;
-  --color-accent: #ff8a2b;
-  --color-accent-strong: #ffb066;
-  --color-border: #38332c;
-  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.45);
-  --shadow-bar: 0 4px 14px rgba(0, 0, 0, 0.55);
 }
 
 /* ---------- Reset ringan ---------- */
@@ -121,6 +91,18 @@ select {
   gap: 12px;
 }
 
+.site-header__logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.site-header__text {
+  min-width: 0;
+}
+
 .site-header__title {
   margin: 0;
   font-family: var(--font-heading);
@@ -136,45 +118,6 @@ select {
   margin: 4px 0 0;
   font-size: 0.95rem;
   color: var(--color-text-muted);
-}
-
-/* Tombol toggle tema */
-.theme-toggle {
-  flex-shrink: 0;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid var(--color-border);
-  background-color: var(--color-bg);
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  transition: background-color 0.15s ease, transform 0.1s ease;
-}
-
-.theme-toggle:hover {
-  background-color: var(--color-surface);
-}
-
-.theme-toggle:active {
-  transform: scale(0.94);
-}
-
-.theme-toggle__icon {
-  font-size: 1.2rem;
-  line-height: 1;
-}
-/* ikon di-set lewat ::before agar ganti sesuai tema */
-.theme-toggle__icon::before {
-  content: "🌙";
-}
-:root[data-theme="dark"] .theme-toggle__icon::before {
-  content: "☀️";
-}
-@media (prefers-color-scheme: dark) {
-  :root[data-theme="auto"] .theme-toggle__icon::before {
-    content: "☀️";
-  }
 }
 
 /* =====================================================================
