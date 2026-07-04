@@ -18,36 +18,35 @@
 
 // Daftar kategori (urutan tampil + label pada bar kategori)
 const KATEGORI = [
-  { id: "pentol", label: "Pentol & Pelengkap" },
-  { id: "isi", label: "Isi Spesial" },
+  { id: "menu", label: "Daftar Menu" },
 ];
 
 // Daftar item menu — Pentol Kuah Jaya Selo
 const MENU = [
   // ---------- PENTOL & PELENGKAP (item dasar per pcs) ----------
   {
-    kategori: "pentol",
+    kategori: "menu",
     nama: "Pentol Alus",
     deskripsi: "Pentol halus, tekstur lembut.",
     harga: 250,
     gambar: "images/pentol-alus.jpg",
   },
   {
-    kategori: "pentol",
+    kategori: "menu",
     nama: "Pentol Kasar / Urat",
     deskripsi: "Berisi urat sapi, tekstur kenyal & mantap.",
     harga: 500,
     gambar: "images/pentol-urat.jpg",
   },
   {
-    kategori: "pentol",
+    kategori: "menu",
     nama: "Siomay",
     deskripsi: "Siomay kukus, cocok dicampur kuah.",
     harga: 500,
     gambar: "images/siomay.jpg",
   },
   {
-    kategori: "pentol",
+    kategori: "menu",
     nama: "Pentol Tahu",
     deskripsi: "Tahu goreng isi adonan pentol.",
     harga: 250,
@@ -56,56 +55,56 @@ const MENU = [
 
   // ---------- ISI SPESIAL (varian isi, harga per pcs) ----------
   {
-    kategori: "isi",
+    kategori: "menu",
     nama: "Isi Telur Asin",
     deskripsi: "Pentol isi telur asin, gurih legit.",
     harga: 5000,
     gambar: "images/isi-telur-asin.jpg",
   },
   {
-    kategori: "isi",
+    kategori: "menu",
     nama: "Isi Telur Ayam",
     deskripsi: "Pentol isi telur ayam.",
     harga: 5000,
     gambar: "images/isi-telur-ayam.jpg",
   },
   {
-    kategori: "isi",
+    kategori: "menu",
     nama: "Isi Telur Puyuh",
     deskripsi: "Pentol isi telur puyuh, praktis & gurih.",
     harga: 2000,
     gambar: "images/pentol-telur.jpg",
   },
   {
-    kategori: "isi",
+    kategori: "menu",
     nama: "Isi Keju Mozarella",
     deskripsi: "Isian keju mozarella lumer, gurih creamy.",
     harga: 1000,
     gambar: "images/pentol-keju.jpg",
   },
   {
-    kategori: "isi",
+    kategori: "menu",
     nama: "Isi Ayam Dhower",
     deskripsi: "Pentol isi ayam dhower berbumbu.",
     harga: 1000,
     gambar: "images/isi-ayam-dhower.jpg",
   },
   {
-    kategori: "isi",
+    kategori: "menu",
     nama: "Isi Ati Ayam",
     deskripsi: "Pentol isi ati ayam.",
     harga: 1000,
     gambar: "images/isi-ati-ayam.jpg",
   },
   {
-    kategori: "isi",
+    kategori: "menu",
     nama: "Isi Jamur",
     deskripsi: "Pentol isi jamur, gurih & kenyal.",
     harga: 1000,
     gambar: "images/isi-jamur.jpg",
   },
   {
-    kategori: "isi",
+    kategori: "menu",
     nama: "Isi Sosis",
     deskripsi: "Pentol isi potongan sosis.",
     harga: 1000,

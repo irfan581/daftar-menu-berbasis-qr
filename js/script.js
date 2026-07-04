@@ -43,6 +43,12 @@
   );
 
   function buildCategoryBar() {
+    // Kalau cuma satu kategori, tab tidak perlu — sembunyikan barnya.
+    if (kategoriTampil.length <= 1) {
+      const bar = document.getElementById("category-bar");
+      if (bar) bar.style.display = "none";
+      return;
+    }
     kategoriTampil.forEach((kat, index) => {
       const li = el("li");
       const btn = el("button", "category-bar__btn", kat.label);
@@ -62,7 +68,7 @@
 
   function buildCard(item) {
     const li = el("li");
-    const card = el("article", "card");
+    const card = el("article", "card reveal");
 
     // Media (foto atau placeholder)
     const media = el("div", "card__media");
@@ -104,13 +110,17 @@
       section.id = "section-" + kat.id;
       section.setAttribute("aria-labelledby", "title-" + kat.id);
 
-      const title = el("h2", "menu-section__title", kat.label);
+      const title = el("h2", "menu-section__title reveal", kat.label);
       title.id = "title-" + kat.id;
       section.appendChild(title);
 
       const list = el("ul", "menu-list");
-      MENU.filter((item) => item.kategori === kat.id).forEach((item) => {
-        list.appendChild(buildCard(item));
+      MENU.filter((item) => item.kategori === kat.id).forEach((item, i) => {
+        const li = buildCard(item);
+        // Stagger: tiap kartu muncul sedikit setelah kartu sebelumnya
+        const card = li.firstElementChild;
+        if (card) card.style.transitionDelay = Math.min(i * 45, 300) + "ms";
+        list.appendChild(li);
       });
       section.appendChild(list);
 
@@ -185,6 +195,39 @@
   }
 
   // ---------------------------------------------------------------
+  // Animasi "reveal": elemen memudar naik saat masuk layar
+  // ---------------------------------------------------------------
+
+  function initReveal() {
+    const items = document.querySelectorAll(".reveal");
+    if (!items.length) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    // Kalau IO tak didukung / pengguna minta minim gerak -> tampilkan langsung
+    if (!("IntersectionObserver" in window) || reduceMotion) {
+      items.forEach((i) => i.classList.add("is-visible"));
+      return;
+    }
+
+    const obs = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-visible");
+            obs.unobserve(e.target); // sekali muncul, berhenti diamati
+          }
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.06 }
+    );
+
+    items.forEach((i) => obs.observe(i));
+  }
+
+  // ---------------------------------------------------------------
   // Init
   // ---------------------------------------------------------------
 
@@ -196,6 +239,7 @@
     buildCategoryBar();
     buildMenu();
     observeSections();
+    initReveal();
   }
 
   if (document.readyState === "loading") {

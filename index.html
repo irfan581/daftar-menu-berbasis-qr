@@ -25,7 +25,7 @@
       />
       <h1 class="hero__title">Pentol Kuah Jaya Selo</h1>
       <p class="hero__tagline">
-        Kuah kaldu balungan sapi, brambang goreng &amp; seledri 🍢
+        Kuah kaldu balungan sapi, brambang goreng &amp; seledri
       </p>
     </header>
 
@@ -43,46 +43,66 @@
 
     <!-- ===================== ZONA INFO (CABANG + FOOTER) ===================== -->
     <div class="info-zone">
-      <!-- Lokasi lapak -->
+      <!-- Lokasi lapak (kartu bisa diklik → buka Google Maps) -->
       <section class="branches" aria-label="Lokasi lapak">
-        <h2 class="branches__title">Lokasi &amp; Cabang</h2>
+        <h2 class="branches__title reveal">Lokasi &amp; Cabang</h2>
         <ul class="branches__list">
-          <li class="branch-card">
-            <div class="branch-card__icon" aria-hidden="true">📍</div>
-            <div class="branch-card__body">
-              <h3 class="branch-card__name">Lapak 1 — Selo</h3>
-              <p class="branch-card__addr">
-                Jl. Wonoasri No. 46, Selo, Kanigoro, Madiun
-              </p>
-            </div>
+          <li>
+            <a
+              class="branch-card reveal"
+              href="https://www.google.com/maps/search/?api=1&query=Jl.+Wonoasri+No.+46+Selo+Kanigoro+Madiun"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="branch-card__icon" aria-hidden="true">📍</div>
+              <div class="branch-card__body">
+                <h3 class="branch-card__name">Lapak 1 — Selo</h3>
+                <p class="branch-card__addr">
+                  Jl. Wonoasri No. 46, Selo, Kanigoro, Madiun
+                </p>
+                <span class="branch-card__maps">Buka di Google Maps →</span>
+              </div>
+            </a>
           </li>
-          <li class="branch-card">
-            <div class="branch-card__icon" aria-hidden="true">📍</div>
-            <div class="branch-card__body">
-              <h3 class="branch-card__name">Lapak 2 — Taman Praja</h3>
-              <p class="branch-card__addr">
-                Jl. Taman Praja, Madiun (area Bento Kopi / Resto Mbok Mingke)
-              </p>
-            </div>
+          <li>
+            <a
+              class="branch-card reveal"
+              href="https://www.google.com/maps/search/?api=1&query=Jl.+Taman+Praja+Madiun+Bento+Kopi"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="branch-card__icon" aria-hidden="true">📍</div>
+              <div class="branch-card__body">
+                <h3 class="branch-card__name">Lapak 2 — Taman Praja</h3>
+                <p class="branch-card__addr">
+                  Jl. Taman Praja, Madiun (area Bento Kopi / Resto Mbok Mingke)
+                </p>
+                <span class="branch-card__maps">Buka di Google Maps →</span>
+              </div>
+            </a>
           </li>
         </ul>
       </section>
 
-      <!-- Info (jam buka, sambal, kontak) -->
+      <!-- Info (jam buka, kontak) -->
       <footer class="site-footer">
         <div class="info-block">
-          <h2 class="info-block__title">🕒 Jam Buka</h2>
+          <h2 class="info-block__title">Jam Buka</h2>
           <p>Setiap hari · 10.00 – 19.00</p>
         </div>
 
         <div class="info-block">
-          <h2 class="info-block__title">🌶️ Pilihan Sambal</h2>
-          <p>Bumbu Kacang · Sambel Cabe · Kecap · Saos Cabe · Saos Tomat</p>
-        </div>
-
-        <div class="info-block">
-          <h2 class="info-block__title">📞 Kontak</h2>
-          <p>WhatsApp 0813-3396-7085</p>
+          <h2 class="info-block__title">Kontak</h2>
+          <p>
+            WhatsApp
+            <a
+              class="contact-link"
+              href="https://wa.me/6281333967085"
+              target="_blank"
+              rel="noopener"
+              >0813-3396-7085</a
+            >
+          </p>
           <a
             class="wa-btn"
             href="https://wa.me/6281333967085"

@@ -336,6 +336,18 @@ select {
   border-radius: var(--radius);
   padding: 14px;
   box-shadow: var(--shadow-card);
+  /* kartu ini sekarang link → hilangkan gaya link bawaan */
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.1s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.branch-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-bar);
+}
+.branch-card:active {
+  transform: scale(0.99);
 }
 
 .branch-card__icon {
@@ -405,6 +417,16 @@ select {
   color: var(--color-text-muted);
 }
 
+/* Nomor WA yang bisa diklik */
+.contact-link {
+  color: var(--color-accent-strong);
+  font-weight: 700;
+  text-decoration: none;
+}
+.contact-link:hover {
+  text-decoration: underline;
+}
+
 .wa-btn {
   display: inline-flex;
   align-items: center;
@@ -429,6 +451,71 @@ select {
 }
 
 /* =====================================================================
+   ANIMASI (hanya jika pengguna tidak minta reduce-motion)
+   ===================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  /* Elemen "reveal" muncul (fade + naik) saat masuk layar */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Hero muncul saat halaman dibuka */
+  .hero__logo {
+    animation: pop-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .hero__title {
+    animation: fade-up 0.6s ease 0.12s both;
+  }
+  .hero__tagline {
+    animation: fade-up 0.6s ease 0.24s both;
+  }
+
+  /* Tombol WhatsApp berdenyut halus supaya menarik perhatian */
+  .wa-btn {
+    animation: wa-pulse 2.6s ease-in-out infinite;
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.82) translateY(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes wa-pulse {
+  0%,
+  100% {
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.35);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.55);
+    transform: translateY(-2px);
+  }
+}
+
+/* =====================================================================
    Aksesibilitas: hormati preferensi reduce-motion
    ===================================================================== */
 @media (prefers-reduced-motion: reduce) {
@@ -437,6 +524,7 @@ select {
   }
   * {
     transition: none !important;
+    animation: none !important;
   }
 }
 
