@@ -28,7 +28,7 @@
 
   /** Emoji placeholder per kategori (dipakai jika foto belum ada) */
   function placeholderEmoji(kategori) {
-    return kategori === "tambahan" ? "🍽️" : "🍢";
+    return kategori === "isi" ? "🍽️" : "🍢";
   }
 
   // ---------------------------------------------------------------
