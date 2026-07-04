@@ -8,6 +8,10 @@
   --color-bg: #f9c928; /* kuning banner gerobak */
   --color-surface: #ffffff; /* permukaan card */
   --color-surface-alt: #ffde59; /* header/bar - kuning lebih terang */
+
+  /* Warna per-zona (biar tiap bagian beda, tidak satu warna) */
+  --zone-menu: #f9c928; /* zona menu: kuning brand */
+  --zone-info: #fff3d6; /* zona info/cabang: krem lembut */
   --color-text: #2b2620; /* teks utama */
   --color-text-muted: #6b5a1e; /* deskripsi/footer */
   --color-accent: #e8720c; /* oranye aksen (aktif/tombol) */
@@ -75,14 +79,15 @@ select {
    HERO (rata tengah: logo → judul → tagline)
    ===================================================================== */
 .hero {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 30px calc(16px + env(safe-area-inset-right)) 20px
+  padding: 30px calc(16px + env(safe-area-inset-right)) 24px
     calc(16px + env(safe-area-inset-left));
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  /* ZONA 1 — hero: gradien oranye hangat (senada api di logo) */
+  background: linear-gradient(180deg, #f39415 0%, #f8bf2c 100%);
+  border-bottom: 2px solid var(--color-border);
 }
 
 .hero__logo {
@@ -280,12 +285,17 @@ select {
 }
 
 /* =====================================================================
-   CABANG / LOKASI
+   ZONA INFO (CABANG + FOOTER) — warna krem, beda dari zona menu
    ===================================================================== */
+.info-zone {
+  background-color: var(--zone-info);
+  border-top: 2px solid var(--color-border);
+}
+
 .branches {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 12px calc(16px + env(safe-area-inset-right)) 8px
+  padding: 16px calc(16px + env(safe-area-inset-right)) 8px
     calc(16px + env(safe-area-inset-left));
 }
 

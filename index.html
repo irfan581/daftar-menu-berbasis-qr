@@ -10,7 +10,7 @@
       name="description"
       content="Menu digital Pentol Kuah Jaya Selo — pentol kuah kaldu balungan sapi dengan aneka isi spesial."
     />
-    <meta name="theme-color" content="#F9C928" />
+    <meta name="theme-color" content="#F39415" />
     <link rel="icon" type="image/png" href="images/logo.png" />
     <title>Menu Digital — Pentol Kuah Jaya Selo</title>
     <link rel="stylesheet" href="css/style.css" />
@@ -41,50 +41,59 @@
       <!-- Section & card menu di-generate oleh script.js -->
     </main>
 
-    <!-- ===================== CABANG / LOKASI ===================== -->
-    <section class="branches" aria-label="Lokasi cabang">
-      <h2 class="branches__title">Lokasi &amp; Cabang</h2>
-      <ul class="branches__list">
-        <li class="branch-card">
-          <div class="branch-card__icon" aria-hidden="true">📍</div>
-          <div class="branch-card__body">
-            <h3 class="branch-card__name">Selo, Madiun</h3>
-            <p class="branch-card__addr">
-              Alamat lengkap menyusul — tinggal isi setelah dikonfirmasi.
-            </p>
-            <!-- Kalau ada link Google Maps, aktifkan baris di bawah:
-            <a class="branch-card__maps" href="LINK_MAPS" target="_blank" rel="noopener">Lihat di Peta →</a>
-            -->
-          </div>
-        </li>
-      </ul>
-    </section>
+    <!-- ===================== ZONA INFO (CABANG + FOOTER) ===================== -->
+    <div class="info-zone">
+      <!-- Lokasi lapak -->
+      <section class="branches" aria-label="Lokasi lapak">
+        <h2 class="branches__title">Lokasi &amp; Cabang</h2>
+        <ul class="branches__list">
+          <li class="branch-card">
+            <div class="branch-card__icon" aria-hidden="true">📍</div>
+            <div class="branch-card__body">
+              <h3 class="branch-card__name">Lapak 1 — Selo</h3>
+              <p class="branch-card__addr">
+                Jl. Wonoasri No. 46, Selo, Kanigoro, Madiun
+              </p>
+            </div>
+          </li>
+          <li class="branch-card">
+            <div class="branch-card__icon" aria-hidden="true">📍</div>
+            <div class="branch-card__body">
+              <h3 class="branch-card__name">Lapak 2 — Taman Praja</h3>
+              <p class="branch-card__addr">
+                Jl. Taman Praja, Madiun (area Bento Kopi / Resto Mbok Mingke)
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
 
-    <!-- ===================== FOOTER (INFO) ===================== -->
-    <footer class="site-footer">
-      <div class="info-block">
-        <h2 class="info-block__title">🕒 Jam Buka</h2>
-        <p>Setiap hari · 14.30 – habis</p>
-      </div>
+      <!-- Info (jam buka, sambal, kontak) -->
+      <footer class="site-footer">
+        <div class="info-block">
+          <h2 class="info-block__title">🕒 Jam Buka</h2>
+          <p>Setiap hari · 14.30 – habis</p>
+        </div>
 
-      <div class="info-block">
-        <h2 class="info-block__title">🌶️ Pilihan Sambal</h2>
-        <p>Bumbu Kacang · Sambel Cabe · Kecap · Saos Cabe · Saos Tomat</p>
-      </div>
+        <div class="info-block">
+          <h2 class="info-block__title">🌶️ Pilihan Sambal</h2>
+          <p>Bumbu Kacang · Sambel Cabe · Kecap · Saos Cabe · Saos Tomat</p>
+        </div>
 
-      <div class="info-block">
-        <h2 class="info-block__title">📞 Kontak</h2>
-        <p>WhatsApp 0813-3396-7085</p>
-        <a
-          class="wa-btn"
-          href="https://wa.me/6281333967085"
-          target="_blank"
-          rel="noopener"
-        >
-          💬 Pesan via WhatsApp
-        </a>
-      </div>
-    </footer>
+        <div class="info-block">
+          <h2 class="info-block__title">📞 Kontak</h2>
+          <p>WhatsApp 0813-3396-7085</p>
+          <a
+            class="wa-btn"
+            href="https://wa.me/6281333967085"
+            target="_blank"
+            rel="noopener"
+          >
+            💬 Pesan via WhatsApp
+          </a>
+        </div>
+      </footer>
+    </div>
 
     <!-- Data menu dimuat lebih dulu, lalu script utama -->
     <script src="js/menu-data.js"></script>
