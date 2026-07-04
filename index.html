@@ -16,25 +16,21 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- ===================== HEADER ===================== -->
-    <header class="site-header">
-      <div class="site-header__inner">
-        <img
-          src="images/logo.png"
-          alt="Logo Pentol Kuah Jaya Selo"
-          class="site-header__logo"
-        />
-        <div class="site-header__text">
-          <h1 class="site-header__title">Pentol Kuah Jaya Selo</h1>
-          <p class="site-header__tagline">
-            Kuah kaldu balungan sapi, brambang goreng &amp; seledri 🍢
-          </p>
-        </div>
-      </div>
+    <!-- ===================== HERO (RATA TENGAH) ===================== -->
+    <header class="hero">
+      <img
+        src="images/logo.png"
+        alt="Logo Pentol Kuah Jaya Selo"
+        class="hero__logo"
+      />
+      <h1 class="hero__title">Pentol Kuah Jaya Selo</h1>
+      <p class="hero__tagline">
+        Kuah kaldu balungan sapi, brambang goreng &amp; seledri 🍢
+      </p>
     </header>
 
     <!-- ================= BAR KATEGORI (STICKY) ================= -->
-    <nav id="category-bar" class="category-bar" aria-label="Kategori menu">
+    <nav id="category-bar" class="category-bar" aria-label="Daftar menu">
       <ul id="category-list" class="category-bar__list">
         <!-- Tombol kategori di-generate oleh script.js -->
       </ul>
@@ -45,10 +41,49 @@
       <!-- Section & card menu di-generate oleh script.js -->
     </main>
 
-    <!-- ===================== FOOTER ===================== -->
+    <!-- ===================== CABANG / LOKASI ===================== -->
+    <section class="branches" aria-label="Lokasi cabang">
+      <h2 class="branches__title">Lokasi &amp; Cabang</h2>
+      <ul class="branches__list">
+        <li class="branch-card">
+          <div class="branch-card__icon" aria-hidden="true">📍</div>
+          <div class="branch-card__body">
+            <h3 class="branch-card__name">Selo, Madiun</h3>
+            <p class="branch-card__addr">
+              Alamat lengkap menyusul — tinggal isi setelah dikonfirmasi.
+            </p>
+            <!-- Kalau ada link Google Maps, aktifkan baris di bawah:
+            <a class="branch-card__maps" href="LINK_MAPS" target="_blank" rel="noopener">Lihat di Peta →</a>
+            -->
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===================== FOOTER (INFO) ===================== -->
     <footer class="site-footer">
-      <p>Sambal tersedia: Bumbu Kacang, Sambel Cabe, Kecap, Saos Cabe, Saos Tomat.</p>
-      <p>Buka jam 14.30 – habis · WhatsApp 0813-3396-7085</p>
+      <div class="info-block">
+        <h2 class="info-block__title">🕒 Jam Buka</h2>
+        <p>Setiap hari · 14.30 – habis</p>
+      </div>
+
+      <div class="info-block">
+        <h2 class="info-block__title">🌶️ Pilihan Sambal</h2>
+        <p>Bumbu Kacang · Sambel Cabe · Kecap · Saos Cabe · Saos Tomat</p>
+      </div>
+
+      <div class="info-block">
+        <h2 class="info-block__title">📞 Kontak</h2>
+        <p>WhatsApp 0813-3396-7085</p>
+        <a
+          class="wa-btn"
+          href="https://wa.me/6281333967085"
+          target="_blank"
+          rel="noopener"
+        >
+          💬 Pesan via WhatsApp
+        </a>
+      </div>
     </footer>
 
     <!-- Data menu dimuat lebih dulu, lalu script utama -->
