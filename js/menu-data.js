@@ -52,6 +52,42 @@ const MENU = [
     harga: 500,
     gambar: "images/tahu-bakso-goreng.png",
   },
+  {
+    kategori: "menu",
+    nama: "Pentol Alus",
+    deskripsi: "Pentol tekstur halus, lembut.",
+    harga: 500,
+  },
+  {
+    kategori: "menu",
+    nama: "Pentol Kasar",
+    deskripsi: "Pentol tekstur kasar, kenyal.",
+    harga: 500,
+  },
+  {
+    kategori: "menu",
+    nama: "Pentol Jamur",
+    deskripsi: "Pentol isi jamur, gurih.",
+    harga: 500,
+  },
+  {
+    kategori: "menu",
+    nama: "Pentol Sosis",
+    deskripsi: "Pentol isi sosis.",
+    harga: 500,
+  },
+  {
+    kategori: "menu",
+    nama: "Pentol Ayam Dhower",
+    deskripsi: "Pentol ayam dhower.",
+    harga: 500,
+  },
+  {
+    kategori: "menu",
+    nama: "Pentol Ati Ayam",
+    deskripsi: "Pentol isi ati ayam.",
+    harga: 500,
+  },
 
   // ---------- ISI SPESIAL (varian isi, harga per pcs) ----------
   {
