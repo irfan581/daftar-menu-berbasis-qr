@@ -26,24 +26,17 @@ const MENU = [
   // ---------- PENTOL & PELENGKAP (item dasar per pcs) ----------
   {
     kategori: "menu",
-    nama: "Pentol Alus",
-    deskripsi: "Pentol halus, tekstur lembut.",
-    harga: 250,
-    gambar: "images/pentol-alus.jpg",
+    nama: "Siomay Ori",
+    deskripsi: "Siomay kukus original, cocok dicampur kuah.",
+    harga: 500,
+    gambar: "images/siomay-ori.png",
   },
   {
     kategori: "menu",
-    nama: "Pentol Kasar / Urat",
-    deskripsi: "Berisi urat sapi, tekstur kenyal & mantap.",
+    nama: "Siomay Gobis",
+    deskripsi: "Siomay dibungkus kol, kukus.",
     harga: 500,
-    gambar: "images/pentol-urat.jpg",
-  },
-  {
-    kategori: "menu",
-    nama: "Siomay",
-    deskripsi: "Siomay kukus, cocok dicampur kuah.",
-    harga: 500,
-    gambar: "images/siomay.jpg",
+    gambar: "images/siomay-gobis.png",
   },
   {
     kategori: "menu",
@@ -51,6 +44,13 @@ const MENU = [
     deskripsi: "Tahu goreng isi adonan pentol.",
     harga: 250,
     gambar: "images/tahu-bakso.jpg",
+  },
+  {
+    kategori: "menu",
+    nama: "Tahu Bakso",
+    deskripsi: "Tahu goreng isi bakso, gurih.",
+    harga: 500,
+    gambar: "images/tahu-bakso-goreng.png",
   },
 
   // ---------- ISI SPESIAL (varian isi, harga per pcs) ----------
@@ -81,34 +81,6 @@ const MENU = [
     deskripsi: "Isian keju mozarella lumer, gurih creamy.",
     harga: 1000,
     gambar: "images/pentol-keju.jpg",
-  },
-  {
-    kategori: "menu",
-    nama: "Isi Ayam Dhower",
-    deskripsi: "Pentol isi ayam dhower berbumbu.",
-    harga: 1000,
-    gambar: "images/isi-ayam-dhower.jpg",
-  },
-  {
-    kategori: "menu",
-    nama: "Isi Ati Ayam",
-    deskripsi: "Pentol isi ati ayam.",
-    harga: 1000,
-    gambar: "images/isi-ati-ayam.jpg",
-  },
-  {
-    kategori: "menu",
-    nama: "Isi Jamur",
-    deskripsi: "Pentol isi jamur, gurih & kenyal.",
-    harga: 1000,
-    gambar: "images/isi-jamur.jpg",
-  },
-  {
-    kategori: "menu",
-    nama: "Isi Sosis",
-    deskripsi: "Pentol isi potongan sosis.",
-    harga: 1000,
-    gambar: "images/isi-sosis.jpg",
   },
 ];
 
