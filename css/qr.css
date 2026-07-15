@@ -118,10 +118,9 @@
 
 #qr-canvas {
   display: block;
-  /* mengecil otomatis di HP mungil, tetap tajam & persegi */
+  /* mengecil otomatis di HP mungil; tinggi menyesuaikan (ada strip judul di atas QR) */
   width: min(260px, 68vw);
   height: auto;
-  aspect-ratio: 1 / 1;
   image-rendering: pixelated; /* pinggiran tajam */
 }
 
@@ -220,6 +219,6 @@
   }
   #qr-canvas {
     width: 60mm;
-    height: 60mm;
+    height: auto;
   }
 }
