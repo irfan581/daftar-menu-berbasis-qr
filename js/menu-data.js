@@ -22,8 +22,82 @@ const KATEGORI = [
 ];
 
 // Daftar item menu — Pentol Kuah Jaya Selo
+// Urutan, nama, dan harga mengikuti banner menu di lapak.
 const MENU = [
+  // ---------- PENTOL ISI (varian isi, harga per pcs) ----------
+  {
+    kategori: "menu",
+    nama: "Pentol Isi Telur Asin",
+    deskripsi: "Pentol isi telur asin, gurih legit.",
+    harga: 5000,
+    gambar: "images/isi-telur-asin.jpg",
+  },
+  {
+    kategori: "menu",
+    nama: "Pentol Isi Telur Ayam",
+    deskripsi: "Pentol isi telur ayam.",
+    harga: 5000,
+    gambar: "images/isi-telur-ayam.jpg",
+  },
+  {
+    kategori: "menu",
+    nama: "Pentol Isi Telur Puyuh",
+    deskripsi: "Pentol isi telur puyuh, praktis & gurih.",
+    harga: 2000,
+    gambar: "images/pentol-telur.jpg",
+  },
+  {
+    kategori: "menu",
+    nama: "Pentol Isi Keju Mozarella",
+    deskripsi: "Isian keju mozarella lumer, gurih creamy.",
+    harga: 1000,
+    gambar: "images/pentol-keju.jpg",
+  },
+  {
+    kategori: "menu",
+    nama: "Pentol Isi Ayam Dhower",
+    deskripsi: "Pentol isi ayam dhower.",
+    harga: 1000,
+  },
+  {
+    kategori: "menu",
+    nama: "Pentol Isi Ati Ayam",
+    deskripsi: "Pentol isi ati ayam.",
+    harga: 1000,
+  },
+  {
+    kategori: "menu",
+    nama: "Pentol Isi Jamur",
+    deskripsi: "Pentol isi jamur, gurih.",
+    harga: 1000,
+  },
+  {
+    kategori: "menu",
+    nama: "Pentol Isi Sosis",
+    deskripsi: "Pentol isi sosis.",
+    harga: 1000,
+  },
+
   // ---------- PENTOL & PELENGKAP (item dasar per pcs) ----------
+  {
+    kategori: "menu",
+    nama: "Tahu Bakso",
+    deskripsi: "Tahu goreng isi bakso, gurih.",
+    harga: 1000,
+    gambar: "images/tahu-bakso-goreng.png",
+  },
+  {
+    kategori: "menu",
+    nama: "Pentol Kasar / Urat",
+    deskripsi: "Pentol tekstur kasar, kenyal.",
+    harga: 500,
+  },
+  {
+    kategori: "menu",
+    nama: "Pentol Alus",
+    deskripsi: "Pentol tekstur halus, lembut.",
+    harga: 250,
+  },
   {
     kategori: "menu",
     nama: "Siomay Ori",
@@ -47,76 +121,9 @@ const MENU = [
   },
   {
     kategori: "menu",
-    nama: "Tahu Bakso",
-    deskripsi: "Tahu goreng isi bakso, gurih.",
-    harga: 500,
-    gambar: "images/tahu-bakso-goreng.png",
-  },
-  {
-    kategori: "menu",
-    nama: "Pentol Alus",
-    deskripsi: "Pentol tekstur halus, lembut.",
-    harga: 500,
-  },
-  {
-    kategori: "menu",
-    nama: "Pentol Kasar",
-    deskripsi: "Pentol tekstur kasar, kenyal.",
-    harga: 500,
-  },
-  {
-    kategori: "menu",
-    nama: "Pentol Jamur",
-    deskripsi: "Pentol isi jamur, gurih.",
-    harga: 500,
-  },
-  {
-    kategori: "menu",
-    nama: "Pentol Sosis",
-    deskripsi: "Pentol isi sosis.",
-    harga: 500,
-  },
-  {
-    kategori: "menu",
-    nama: "Pentol Ayam Dhower",
-    deskripsi: "Pentol ayam dhower.",
-    harga: 500,
-  },
-  {
-    kategori: "menu",
-    nama: "Pentol Ati Ayam",
-    deskripsi: "Pentol isi ati ayam.",
-    harga: 500,
-  },
-
-  // ---------- ISI SPESIAL (varian isi, harga per pcs) ----------
-  {
-    kategori: "menu",
-    nama: "Isi Telur Asin",
-    deskripsi: "Pentol isi telur asin, gurih legit.",
-    harga: 5000,
-    gambar: "images/isi-telur-asin.jpg",
-  },
-  {
-    kategori: "menu",
-    nama: "Isi Telur Ayam",
-    deskripsi: "Pentol isi telur ayam.",
-    harga: 5000,
-    gambar: "images/isi-telur-ayam.jpg",
-  },
-  {
-    kategori: "menu",
-    nama: "Isi Telur Puyuh",
-    deskripsi: "Pentol isi telur puyuh, praktis & gurih.",
-    harga: 2000,
-    gambar: "images/pentol-telur.jpg",
-  },
-  {
-    kategori: "menu",
-    nama: "Isi Keju Mozarella",
-    deskripsi: "Isian keju mozarella lumer, gurih creamy.",
-    harga: 1000,
-    gambar: "images/pentol-keju.jpg",
+    nama: "Pangsit",
+    deskripsi: "Pangsit goreng renyah.",
+    harga: 250,
   },
 ];
 
